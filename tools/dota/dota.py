@@ -45,15 +45,19 @@ if __name__=="__main__":
 
     '''convert to 4 points
     '''
+    with open("/root/mmrotate/tools/dota/test_filenames.txt", 'r') as file:
+        data = file.read()
+        file_names = data.split('\n')[:-1]
     
     result = mmcv.load('/root/mmrotate/out.pkl')
+    
     count = 0
-    for index, boxes in enumerate(result):
-        print("the {}th picture's  rect points are:".format(index+1))
-        for box in boxes[0]:
-            # print(box)
-            # if box[-1]>0.9:
-            count+=1
-            rect=coordinate_convert_r(box[:-1])
-            print("{}, {}, {}, {} ".format(rect[0],rect[1], rect[2], rect[3]))
+    with open("/root/mmrotate/tools/dota/predict_bbox.txt", 'w') as file:
+        for index, (boxes, file_name) in enumerate(zip(result,file_names)):
+            for box in boxes[0]:
+                count+=1
+                rect=coordinate_convert_r(box[:-1])
+                file.write(file_name[:-4]+' '+str(box[-1])+' '+str(rect.reshape(-1))[1:-1]+'\n')
+                # print("{}, {}, {}, {} ".format(rect[0],rect[1], rect[2], rect[3]))
+
     print("the count is :{}".format(count))

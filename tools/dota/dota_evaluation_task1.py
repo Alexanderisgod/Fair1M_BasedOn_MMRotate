@@ -273,21 +273,28 @@ def main():
 
     # ##TODO: wrap the code in the main
     # detpath = r'/home/dingjian/Documents/Research/experiments/light_head_faster_rotbox_best_point/Task1_results_0.1_nms_epoch18/results/Task1_{:s}.txt'
-    # annopath = r'/home/dingjian/code/DOTA/DOTA/media/OrientlabelTxt-utf-8/{:s}.txt'# change the directory to the path of val/labelTxt, if you want to do evaluation on the valset
+    # annopath = r'/home/dingjian/code/DOTA/DOTA/media/OrientlabelTxt-utf-8/{:s}.txt'# change the directory to the path of val/labelTxt, if you wCusant to do evaluation on the valset
     # imagesetfile = r'/home/dingjian/code/DOTA/DOTA/media/testset.txt'
     # classnames = ['plane', 'baseball-diamond', 'bridge', 'ground-track-field', 'small-vehicle', 'large-vehicle', 'ship', 'tennis-court',
     #             'basketball-court', 'storage-tank',  'soccer-ball-field', 'roundabout', 'harbor', 'swimming-pool', 'helicopter']
 
-    detpath = r'PATH_TO_BE_CONFIGURED/Task1_{:s}.txt'
-    annopath = r'PATH_TO_BE_CONFIGURED/{:s}.txt' # change the directory to the path of val/labelTxt, if you want to do evaluation on the valset
-    imagesetfile = r'PATH_TO_BE_CONFIGURED/valset.txt'
+    # detpath = r'PATH_TO_BE_CONFIGURED/Task1_{:s}.txt'
+    # annopath = r'PATH_TO_BE_CONFIGURED/{:s}.txt' # change the directory to the path of val/labelTxt, if you want to do evaluation on the valset
+    # imagesetfile = r'PATH_TO_BE_CONFIGURED/valset.txt'
+
+    # 修改文件地址
+    detpath = r'/root/mmrotate/tools/dota/predict_bbox.txt'
+    annopath = r'/root/FAIR1M_plane_1_1024_512/test/labelTxt/' # change the directory to the path of val/labelTxt, if you want to do evaluation on the valset
+    imagesetfile = r'/root/mmrotate/tools/dota/test_filenames.txt'
 
     # For DOTA-v1.5
     # classnames = ['plane', 'baseball-diamond', 'bridge', 'ground-track-field', 'small-vehicle', 'large-vehicle', 'ship', 'tennis-court',
     #             'basketball-court', 'storage-tank',  'soccer-ball-field', 'roundabout', 'harbor', 'swimming-pool', 'helicopter', 'container-crane']
     # For DOTA-v1.0
-    classnames = ['plane', 'baseball-diamond', 'bridge', 'ground-track-field', 'small-vehicle', 'large-vehicle', 'ship', 'tennis-court',
-                'basketball-court', 'storage-tank',  'soccer-ball-field', 'roundabout', 'harbor', 'swimming-pool', 'helicopter']
+    # classnames = ['plane', 'baseball-diamond', 'bridge', 'ground-track-field', 'small-vehicle', 'large-vehicle', 'ship', 'tennis-court',
+    #             'basketball-court', 'storage-tank',  'soccer-ball-field', 'roundabout', 'harbor', 'swimming-pool', 'helicopter']
+
+    classnames = ['Airplane',]
     classaps = []
     map = 0
     for classname in classnames:
