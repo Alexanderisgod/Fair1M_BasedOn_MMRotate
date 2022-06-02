@@ -165,7 +165,9 @@ def voc_eval(detpath,
     confidence = np.array([float(x[1]) for x in splitlines])
 
     #print('check confidence: ', confidence)
-
+    
+    for x in splitlines:
+        assert len(x[2:])==8, f'the {x} size is {len(x[2:])}'
     BB = np.array([[float(z) for z in x[2:]] for x in splitlines])
 
     # sort by confidence
@@ -283,9 +285,9 @@ def main():
     # imagesetfile = r'PATH_TO_BE_CONFIGURED/valset.txt'
 
     # 修改文件地址
-    detpath = r'/root/mmrotate/tools/dota/predict_bbox.txt'
-    annopath = r'/root/FAIR1M_plane_1_1024_512/test/labelTxt/' # change the directory to the path of val/labelTxt, if you want to do evaluation on the valset
-    imagesetfile = r'/root/mmrotate/tools/dota/test_filenames.txt'
+    detpath = r'/root/mmrotate/tools/dota/Task1_{:s}.txt'
+    annopath = r'/root/FAIR1M_plane_1_1024_512/test/labelTxt/{:s}.txt' # change the directory to the path of val/labelTxt, if you want to do evaluation on the valset
+    imagesetfile = r'/root/mmrotate/tools/dota/imagesetfile.txt'
 
     # For DOTA-v1.5
     # classnames = ['plane', 'baseball-diamond', 'bridge', 'ground-track-field', 'small-vehicle', 'large-vehicle', 'ship', 'tennis-court',

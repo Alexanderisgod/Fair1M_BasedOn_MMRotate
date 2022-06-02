@@ -202,10 +202,10 @@ def main():
             
     # 保存测试集文件名称和顺序
     data_infos = dataset.data_infos
-    with open("/root/mmrotate/tools/dota/test_filenames.txt", 'w') as file:
+    with open("/root/mmrotate/tools/dota/imagesetfile.txt", 'w') as file:
         for data_info in data_infos:
             # print(data_info['filename'])
-            file.write(data_info['filename'])
+            file.write(data_info['filename'][:-4])
             file.write('\n')
             
     data_loader = build_dataloader(dataset, **test_loader_cfg)
